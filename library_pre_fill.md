@@ -5,7 +5,7 @@ Toy Tello Drone
 
 Description:
 ```
-This package allows you to drop a simple drone to pilote like a tello. Just provide two Vector2.
+This package lets you pilot a basic drone, similar to a Tello, for casual use, much like a toy you might buy from Amazon. It’s nothing amazing, but it gets the job done. Just provide two float Vector2 values to control its movement.
 ```
 
 Category: 
