@@ -4,6 +4,7 @@
 
 # Exclude these from ZIP exports
 /docs export-ignore
+/guides export-ignore
 /screenshots export-ignore
 /tests export-ignore
 /.github export-ignore
