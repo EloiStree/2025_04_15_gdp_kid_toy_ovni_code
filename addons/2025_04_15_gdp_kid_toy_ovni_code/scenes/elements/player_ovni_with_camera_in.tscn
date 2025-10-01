@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bggdtykh4nrm1"]
 
-[ext_resource type="PackedScene" uid="uid://0lfukth4fm6g" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/scene/elements/player_ovni_with_code.tscn" id="1_1jeyo"]
+[ext_resource type="PackedScene" uid="uid://0lfukth4fm6g" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/scenes/elements/player_ovni_with_code.tscn" id="1_1jeyo"]
 
 [node name="PlayerOvniWithCameraIn" type="Node"]
 

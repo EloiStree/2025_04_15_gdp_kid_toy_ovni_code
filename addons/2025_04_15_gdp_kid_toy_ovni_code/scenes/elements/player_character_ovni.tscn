@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://j50xouj44bxn"]
 
-[ext_resource type="Script" uid="uid://bdk5yqaqrbfi5" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/script/core/move/v001/ovni__move_drone_character_from_two_joysticks.gd" id="1_j23r7"]
-[ext_resource type="Script" uid="uid://bco5ie7nq3ini" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/script/core/input/ovni__drone_action_input_to_vector2.gd" id="2_0rifq"]
-[ext_resource type="PackedScene" uid="uid://w5squqreqcwt" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/scene/elements/ui3d_player_ovni.tscn" id="3_rd82i"]
+[ext_resource type="Script" uid="uid://bdk5yqaqrbfi5" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/scripts/core/move/v001/ovni__move_drone_character_from_two_joysticks.gd" id="1_j23r7"]
+[ext_resource type="Script" uid="uid://bco5ie7nq3ini" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/scripts/core/input/ovni__drone_action_input_to_vector2.gd" id="2_0rifq"]
+[ext_resource type="PackedScene" uid="uid://w5squqreqcwt" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/scenes/elements/ui3d_player_ovni.tscn" id="3_rd82i"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_o370j"]
 

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://lo4emuvx6gyo" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/2D/UFO_Body_D_ColorFull.png" id="1_6dips"]
 [ext_resource type="Texture2D" uid="uid://b5kl2ugec1p8m" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/2D/UFO_Glass_D.png" id="2_xdyn8"]
 [ext_resource type="Texture2D" uid="uid://bxed7y5gsk0u6" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/2D/AbductionRayCylinderUVLightYellow.png" id="3_xdyn8"]
-[ext_resource type="Script" uid="uid://cw48vsgvck24a" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/script/obsolete/ovni__input_to_abduction_ray_activation.gd" id="4_g61nm"]
+[ext_resource type="Script" uid="uid://cw48vsgvck24a" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/scripts/obsolete/ovni__input_to_abduction_ray_activation.gd" id="4_g61nm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmaa7"]
 resource_name = "UFO_Body"
@@ -139,7 +139,7 @@ albedo_texture = ExtResource("3_xdyn8")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_g61nm"]
 
-[node name="Player OVNI" type="Node3D"]
+[node name="PlayerOVNI" type="Node3D"]
 
 [node name="UFO_Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.00194592, 0, 0, 0, 0.00194592, 0, 0, 0, 0.00194592, -0.000215996, 0.000404194, -0.000660274)
@@ -153,7 +153,7 @@ mesh = SubResource("ArrayMesh_wgahq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_waiqs")
 
-[node name="VolumeOfKidDrone" type="MeshInstance3D" parent="."]
+[node name="VolumeOfKidOvni" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.15, 0, 0, 0, 0.05, 0, 0, 0, 0.15, 0, 0, 0)
 visible = false
 mesh = SubResource("BoxMesh_lvow2")
