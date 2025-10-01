@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://j50xouj44bxn"]
+
+[ext_resource type="Script" uid="uid://bco5ie7nq3ini" path="res://packages/2025_04_15_gdp_kid_toy_ovni_code/script/drone_input_to_vector2.gd" id="1_6icc6"]
+[ext_resource type="Script" uid="uid://bdk5yqaqrbfi5" path="res://packages/2025_04_15_gdp_kid_toy_ovni_code/script/move_drone_character_from_two_joysticks.gd" id="1_v607y"]
+[ext_resource type="PackedScene" uid="uid://w5squqreqcwt" path="res://packages/2025_04_15_gdp_kid_toy_ovni_code/scene/elements/player_ovni.tscn" id="3_fr5ye"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o370j"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6slts"]
+
+[node name="PlayerDrone" type="CharacterBody3D"]
+disable_mode = 2
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+motion_mode = 1
+script = ExtResource("1_v607y")
+
+[node name="Scripts" type="Node" parent="."]
+
+[node name="NodeInputToVector2" type="Node" parent="Scripts"]
+script = ExtResource("1_6icc6")
+
+[node name="NodeBasicDroneMove" type="Node" parent="Scripts"]
+script = ExtResource("1_v607y")
+move_speed = 2.0
+vertical_speed = 1.8
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 6.04875e-06, -1.50616e-05, -2.4195e-05, 0.05, 1.32178e-05, 1.50616e-05, -3.30445e-06, 0.2, -0.00101066, -0.000609368, 0.000931382)
+visible = false
+mesh = SubResource("BoxMesh_o370j")
+
+[node name="Player OVNI" parent="." instance=ExtResource("3_fr5ye")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_6slts")
+
+[connection signal="on_input_processed" from="Scripts/NodeInputToVector2" to="." method="set_drone_joysticks"]
