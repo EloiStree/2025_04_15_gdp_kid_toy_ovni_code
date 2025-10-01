@@ -1,9 +1,9 @@
 [gd_scene load_steps=19 format=4 uid="uid://w5squqreqcwt"]
 
-[ext_resource type="Texture2D" uid="uid://lo4emuvx6gyo" path="res://packages/2025_04_15_gdp_kid_toy_ovni_code/2D/UFO_Body_D_ColorFull.png" id="1_6dips"]
-[ext_resource type="Texture2D" uid="uid://b5kl2ugec1p8m" path="res://packages/2025_04_15_gdp_kid_toy_ovni_code/2D/UFO_Glass_D.png" id="2_xdyn8"]
-[ext_resource type="Texture2D" uid="uid://bxed7y5gsk0u6" path="res://packages/2025_04_15_gdp_kid_toy_ovni_code/2D/AbductionRayCylinderUVLightYellow.png" id="3_xdyn8"]
-[ext_resource type="Script" uid="uid://cw48vsgvck24a" path="res://packages/2025_04_15_gdp_kid_toy_ovni_code/script/input_to_abduction_ray_activation.gd" id="4_g61nm"]
+[ext_resource type="Texture2D" uid="uid://lo4emuvx6gyo" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/2D/UFO_Body_D_ColorFull.png" id="1_6dips"]
+[ext_resource type="Texture2D" uid="uid://b5kl2ugec1p8m" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/2D/UFO_Glass_D.png" id="2_xdyn8"]
+[ext_resource type="Texture2D" uid="uid://bxed7y5gsk0u6" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/2D/AbductionRayCylinderUVLightYellow.png" id="3_xdyn8"]
+[ext_resource type="Script" uid="uid://cw48vsgvck24a" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/script/obsolete/ovni__input_to_abduction_ray_activation.gd" id="4_g61nm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmaa7"]
 resource_name = "UFO_Body"
