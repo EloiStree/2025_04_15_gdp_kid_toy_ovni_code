@@ -29,9 +29,9 @@ jobs:
           [ -d docs ] && rm -r docs
           find . -name "*.blend" -type f -delete
           find . -name "*.blend.import" -type f -delete
-          mkdir -p addons/${{ github.event.repository.name }}
-          mv {.,}* addons/${{ github.event.repository.name }} 2>/dev/null || true
           cd ..
+          mkdir -p addons
+          mv ${{ github.event.repository.name }} addons/${{ github.event.repository.name }}
           zip -r ${{ github.event.repository.name }}.zip addons/
     
       - name: Create Release
