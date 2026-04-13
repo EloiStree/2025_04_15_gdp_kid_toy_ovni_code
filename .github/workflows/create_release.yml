@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: main
 
@@ -37,13 +37,21 @@ jobs:
           mkdir -p ../${{ github.event.repository.name }}_temp/addons/${{ github.event.repository.name }}
           mv {.,}* ../${{ github.event.repository.name }}_temp/addons/${{ github.event.repository.name }}
           mv ../${{ github.event.repository.name }}_temp/addons ../${{ github.event.repository.name }}
+          
+          echo -e "${{ github.event.repository.html_url }}" > ../${{ github.event.repository.name }}_temp/source.md
+          echo -e "[InternetShortcut]\nURL=${{ github.event.repository.html_url }}" > ../${{ github.event.repository.name }}_temp/source.url
+
           cd ..
+
+
 
           git clone https://github.com/EloiStree/godot_empty_project_for_addons.git godot_empty_project_temp
           rm -rf godot_empty_project_temp/.git
           cp -r godot_empty_project_temp/. ${{ github.event.repository.name }}/
           rm -rf godot_empty_project_temp
-          
+
+
+
           zip -r ${{ github.event.repository.name }}.zip ${{ github.event.repository.name }}
     
       - name: Create Release
@@ -52,7 +60,7 @@ jobs:
           files: ../${{ github.event.repository.name }}.zip
           generate_release_notes: true
           tag_name: ${{ inputs.tag }}
-          draft: true
+          draft: false
 
 
 
