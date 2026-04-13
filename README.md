@@ -1,10 +1,11 @@
+_Check the GitHub main page read me for more information:_  
+https://github.com/EloiStree/2025_04_15_gdp_kid_toy_ovni_code  
+
+--------
 
 # Kid Toy: OVNI / Tello Drone
 
 This asset allows students to drop a drone behaving like an Amazon drone or a Tello drone in a steady state.
-
-<img width="937" height="209" alt="image" src="https://github.com/user-attachments/assets/564f8d60-c042-49a4-8b9f-68f238bd897d" />
-
 
 For the story of the 3D UFO mesh:
 
