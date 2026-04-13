@@ -1,54 +1,18 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Create Release
-
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    tags:
-      - "v*.*.*"
-
-# Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: 'The version for this release. eg: v1.5.2'
-        required: true
-        type: string
-
-
-permissions:
-  contents: write
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
 jobs:
-  # This workflow contains a single job called "build"
-  release:
-    # The type of runner that the job will run on
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v5
-
-      - name: Move and Zip
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v5
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
         run: |
-          rm -r .git/
-          rm -r docs 
-          find . -name "*.blend" -type f -delete
-          find . -name "*.blend.import" -type f -delete
-          mkdir -p ../godot_project/addons/2025_04_15_gdp_kid_toy_ovni_code
-          mv {.,}* ../godot_project/addons/2025_04_15_gdp_kid_toy_ovni_code
-          mv ../godot_project/addons ../2025_04_15_gdp_kid_toy_ovni_code
-          cd ..
-          zip -r 2025_04_15_gdp_kid_toy_ovni_code.zip 2025_04_15_gdp_kid_toy_ovni_code
-    
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: ../2025_04_15_gdp_kid_toy_ovni_code.zip
-          generate_release_notes: true
-          tag_name: ${{ inputs.tag }}
-          draft: true
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
