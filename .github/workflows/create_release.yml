@@ -25,18 +25,18 @@ jobs:
 
       - name: Prepare Asset Package
         run: |
-          rm -r .git/
-          rm -r docs 
+          [ -d .git ] && rm -r .git/
+          [ -d docs ] && rm -r docs
           find . -name "*.blend" -type f -delete
           find . -name "*.blend.import" -type f -delete
-          mkdir -p addons/2025_04_15_gdp_kid_toy_ovni_code
-          mv {.,}* addons/2025_04_15_gdp_kid_toy_ovni_code 2>/dev/null || true
+          mkdir -p addons/${{ github.event.repository.name }}
+          mv {.,}* addons/${{ github.event.repository.name }} 2>/dev/null || true
           cd ..
-          zip -r 2025_04_15_gdp_kid_toy_ovni_code.zip addons/
+          zip -r ${{ github.event.repository.name }}.zip addons/
     
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          files: ../2025_04_15_gdp_kid_toy_ovni_code.zip
+          files: ../${{ github.event.repository.name }}.zip
           generate_release_notes: true
           tag_name: ${{ inputs.tag }}
