@@ -32,11 +32,19 @@ jobs:
           find . -name "*.blend" -type f -delete
           find . -name "*.blend.import" -type f -delete
 
+
+
           mkdir -p ../${{ github.event.repository.name }}_temp/addons/${{ github.event.repository.name }}
           mv {.,}* ../${{ github.event.repository.name }}_temp/addons/${{ github.event.repository.name }}
           mv ../${{ github.event.repository.name }}_temp/addons ../${{ github.event.repository.name }}
           cd ..
-          zip -r ${{ github.event.repository.name }}.zip ${{ github.event.repository.name }}
+
+          git clone https://github.com/EloiStree/godot_empty_project_for_addons.git godot_empty_project_temp
+          rm -rf godot_empty_project_temp/.git
+          cp -r godot_empty_project_temp/. ${{ github.event.repository.name }}/
+          rm -rf godot_empty_project_temp
+          
+          zip -r ${{ github.event.repository.name }}.zip ${{ github.event.repository.name }}/.
     
       - name: Create Release
         uses: softprops/action-gh-release@v2
