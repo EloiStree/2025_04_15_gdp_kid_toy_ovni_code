@@ -41,10 +41,13 @@ jobs:
           git clone https://github.com/EloiStree/godot_empty_project_for_addons.git godot_empty_project_temp
           echo -e "${{ github.event.repository.html_url }}" > godot_empty_project_temp/git_source.md
           echo -e "[InternetShortcut]\nURL=${{ github.event.repository.html_url }}" > godot_empty_project_temp/git_source.url
+          echo -e "[InternetShortcut]\nURL=https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/releases/latest/download/${{ github.event.repository.name }}.zip\n" > godot_empty_project_temp/download_latest.url
+          
 
           rm -rf godot_empty_project_temp/.git
           cp -r godot_empty_project_temp/. ${{ github.event.repository.name }}/
           rm -rf godot_empty_project_temp
+
 
           zip -r ${{ github.event.repository.name }}.zip ${{ github.event.repository.name }}
     
