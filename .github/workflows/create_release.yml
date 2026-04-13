@@ -44,7 +44,7 @@ jobs:
           cp -r godot_empty_project_temp/. ${{ github.event.repository.name }}/
           rm -rf godot_empty_project_temp
           
-          zip -r ${{ github.event.repository.name }}.zip ${{ github.event.repository.name }}/.
+          zip -r ${{ github.event.repository.name }}.zip ${{ github.event.repository.name }}
     
       - name: Create Release
         uses: softprops/action-gh-release@v2
