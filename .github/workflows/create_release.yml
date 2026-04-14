@@ -43,8 +43,10 @@ jobs:
           echo -e "[InternetShortcut]\nURL=${{ github.event.repository.html_url }}" > godot_empty_project_temp/git_source.url
           echo -e "[InternetShortcut]\nURL=https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/releases/latest/download/${{ github.event.repository.name }}.zip\n" > godot_empty_project_temp/download_latest.url
           
-
-          rm -rf godot_empty_project_temp/.git
+          [ -d godot_empty_project_temp/.git ] && rm -rf godot_empty_project_temp/.git
+          [ -d godot_empty_project_temp/.github ] && rm -rf godot_empty_project_temp/.github
+          
+          
           cp -r godot_empty_project_temp/. ${{ github.event.repository.name }}/
           rm -rf godot_empty_project_temp
 
