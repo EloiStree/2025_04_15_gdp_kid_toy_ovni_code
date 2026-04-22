@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://d0h7oaqbh1miq"]
+
+[ext_resource type="Script" uid="uid://bmes24xflrrva" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/scripts/core/move/fpv_move_basic_character.gd" id="1_mediy"]
+[ext_resource type="PackedScene" uid="uid://w5squqreqcwt" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/scenes/elements/ui3d_player_ovni.tscn" id="2_7dsqm"]
+[ext_resource type="Script" uid="uid://cbks0teotgjmh" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/scripts/core/input/ovni__drone_raw_input_to_vector2.gd" id="3_qrlfy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sw1g4"]
+radius = 0.07519531
+height = 0.15039063
+
+[node name="DemoOvniTello" type="Node3D" unique_id=2053603305]
+
+[node name="FpvMoveBasicCharacter" type="CharacterBody3D" parent="." unique_id=1667675967]
+script = ExtResource("1_mediy")
+throttle_front_speed = 1.0
+throttle_back_speed = 0.2
+metadata/_custom_type_script = "uid://bmes24xflrrva"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FpvMoveBasicCharacter" unique_id=1247462512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00036621094, 0)
+shape = SubResource("CapsuleShape3D_sw1g4")
+
+[node name="PlayerOVNI" parent="FpvMoveBasicCharacter" unique_id=1231851715 instance=ExtResource("2_7dsqm")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1718816601]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=644466938]
+anchors_preset = -1
+anchor_right = 0.20700002
+anchor_bottom = 0.42000002
+offset_right = 0.5359802
+offset_bottom = -0.16000366
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/VBoxContainer" unique_id=189274446]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="HSlider2" type="HSlider" parent="CanvasLayer/VBoxContainer" unique_id=398109084]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="HSlider3" type="HSlider" parent="CanvasLayer/VBoxContainer" unique_id=1900619337]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="HSlider4" type="HSlider" parent="CanvasLayer/VBoxContainer" unique_id=832969388]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1024353776]
+transform = Transform3D(1, 0, 0, 0, 0.8039918, 0.5946404, 0, -0.5946404, 0.8039918, 0, 0.40368658, 0.7318965)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1927932490]
+transform = Transform3D(1, 0, 0, 0, 0.69588774, 0.71815056, 0, -0.71815056, 0.69588774, 0, 0, 0)
+
+[node name="OvniDroneKeyInputToVector2" type="Node" parent="." unique_id=858743584]
+script = ExtResource("3_qrlfy")
+metadata/_custom_type_script = "uid://cbks0teotgjmh"
+
+[connection signal="on_input_processed" from="OvniDroneKeyInputToVector2" to="FpvMoveBasicCharacter" method="set_double_joystick"]
