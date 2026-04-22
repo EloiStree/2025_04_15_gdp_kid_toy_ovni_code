@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c8o0tkde1wvry"]
+
+[ext_resource type="Script" uid="uid://o06glb6cj4jt" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/scripts/core/move/tello_move_lerp_character.gd" id="1_536vr"]
+[ext_resource type="PackedScene" uid="uid://w5squqreqcwt" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/scenes/elements/ui3d_player_ovni.tscn" id="2_5h03i"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sw1g4"]
+radius = 0.07519531
+height = 0.15039063
+
+[node name="DemoOvniTello" type="Node3D" unique_id=2053603305]
+
+[node name="TelloMoveLerpCharacter" type="CharacterBody3D" parent="." unique_id=305770245]
+script = ExtResource("1_536vr")
+metadata/_custom_type_script = "uid://o06glb6cj4jt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TelloMoveLerpCharacter" unique_id=1247462512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00036621094, 0)
+shape = SubResource("CapsuleShape3D_sw1g4")
+
+[node name="PlayerOVNI" parent="TelloMoveLerpCharacter" unique_id=1231851715 instance=ExtResource("2_5h03i")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1718816601]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=644466938]
+anchors_preset = -1
+anchor_right = 0.20700002
+anchor_bottom = 0.42000002
+offset_right = 0.5359802
+offset_bottom = -0.16000366
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/VBoxContainer" unique_id=189274446]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="HSlider2" type="HSlider" parent="CanvasLayer/VBoxContainer" unique_id=398109084]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="HSlider3" type="HSlider" parent="CanvasLayer/VBoxContainer" unique_id=1900619337]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="HSlider4" type="HSlider" parent="CanvasLayer/VBoxContainer" unique_id=832969388]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1024353776]
+transform = Transform3D(1, 0, 0, 0, 0.8039918, 0.5946404, 0, -0.5946404, 0.8039918, 0, 0.40368658, 0.7318965)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1927932490]
+transform = Transform3D(1, 0, 0, 0, 0.69588774, 0.71815056, 0, -0.71815056, 0.69588774, 0, 0, 0)
+
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/HSlider" to="TelloMoveLerpCharacter" method="set_vertical_move"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/HSlider2" to="TelloMoveLerpCharacter" method="set_horizontal_rotation"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/HSlider3" to="TelloMoveLerpCharacter" method="set_horizontal_move"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/HSlider4" to="TelloMoveLerpCharacter" method="set_frontal_move"]
