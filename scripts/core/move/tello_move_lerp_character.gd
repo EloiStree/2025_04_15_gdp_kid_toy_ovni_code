@@ -49,6 +49,12 @@ func _physics_process(delta: float) -> void:
 	rotation_degrees.y += -horizontal_angle_per_seconds * delta * rotate_left_right_user_previous
 
 
+func set_with_left_right_joysticks(left:Vector2, right:Vector2):
+	set_horizontal_rotation(left.x)
+	set_vertical_move(left.y)
+	set_horizontal_move(right.x)
+	set_frontal_move(right.y)
+
 func set_frontal_move(back_forward: float) -> void:
 	direction_user.z = clamp(back_forward, -1.0, 1.0)
 

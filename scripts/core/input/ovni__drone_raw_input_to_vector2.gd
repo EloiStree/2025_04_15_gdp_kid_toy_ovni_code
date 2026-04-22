@@ -1,3 +1,4 @@
+class_name OvniDroneKeyInputToVector2
 extends Node
 
 # Exposed vectors for other developers to use

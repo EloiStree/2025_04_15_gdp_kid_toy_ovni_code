@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://o06glb6cj4jt" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/scripts/core/move/tello_move_lerp_character.gd" id="1_536vr"]
 [ext_resource type="PackedScene" uid="uid://w5squqreqcwt" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/scenes/elements/ui3d_player_ovni.tscn" id="2_5h03i"]
+[ext_resource type="Script" uid="uid://cbks0teotgjmh" path="res://addons/2025_04_15_gdp_kid_toy_ovni_code/scripts/core/input/ovni__drone_raw_input_to_vector2.gd" id="3_sw1g4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sw1g4"]
 radius = 0.07519531
@@ -58,7 +59,12 @@ transform = Transform3D(1, 0, 0, 0, 0.8039918, 0.5946404, 0, -0.5946404, 0.80399
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1927932490]
 transform = Transform3D(1, 0, 0, 0, 0.69588774, 0.71815056, 0, -0.71815056, 0.69588774, 0, 0, 0)
 
+[node name="OvniDroneKeyInputToVector2" type="Node" parent="." unique_id=858743584]
+script = ExtResource("3_sw1g4")
+metadata/_custom_type_script = "uid://cbks0teotgjmh"
+
 [connection signal="value_changed" from="CanvasLayer/VBoxContainer/HSlider" to="TelloMoveLerpCharacter" method="set_vertical_move"]
 [connection signal="value_changed" from="CanvasLayer/VBoxContainer/HSlider2" to="TelloMoveLerpCharacter" method="set_horizontal_rotation"]
 [connection signal="value_changed" from="CanvasLayer/VBoxContainer/HSlider3" to="TelloMoveLerpCharacter" method="set_horizontal_move"]
 [connection signal="value_changed" from="CanvasLayer/VBoxContainer/HSlider4" to="TelloMoveLerpCharacter" method="set_frontal_move"]
+[connection signal="on_input_processed" from="OvniDroneKeyInputToVector2" to="TelloMoveLerpCharacter" method="set_with_left_right_joysticks"]

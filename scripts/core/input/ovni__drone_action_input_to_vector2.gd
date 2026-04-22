@@ -1,3 +1,4 @@
+class_name OvniDroneActionInputToVector2
 extends Node
 
 # Exposed vectors for other developers to use
@@ -26,25 +27,25 @@ func _process_input() -> void:
 	joystick_right_move = Vector2.ZERO
 	
 	# Movement inputs (X,Z plane)
-	if Input.is_action_pressed(drone_move_forward):
+	if InputMap.has_action(drone_move_forward) and Input.is_action_pressed(drone_move_forward):
 		joystick_right_move.y += 1
-	if Input.is_action_pressed(drone_move_backward):
+	if InputMap.has_action(drone_move_backward) and  Input.is_action_pressed(drone_move_backward):
 		joystick_right_move.y -= 1
-	if Input.is_action_pressed(drone_move_left):
+	if InputMap.has_action(drone_move_left) and  Input.is_action_pressed(drone_move_left):
 		joystick_right_move.x -= 1
-	if Input.is_action_pressed(drone_move_right):
+	if InputMap.has_action(drone_move_right) and  Input.is_action_pressed(drone_move_right):
 		joystick_right_move.x += 1
 
 	# Vertical movement
-	if Input.is_action_pressed(drone_move_up):
+	if InputMap.has_action(drone_move_up) and  Input.is_action_pressed(drone_move_up):
 		joystick_left_vertical_rotate.y += 1
-	if Input.is_action_pressed(drone_move_down):
+	if InputMap.has_action(drone_move_down) and  Input.is_action_pressed(drone_move_down):
 		joystick_left_vertical_rotate.y -= 1
 
 	# Look / Turn inputs
-	if Input.is_action_pressed(drone_turn_left):
+	if InputMap.has_action(drone_turn_left) and  Input.is_action_pressed(drone_turn_left):
 		joystick_left_vertical_rotate.x -= 1
-	if Input.is_action_pressed(drone_turn_right):
+	if InputMap.has_action(drone_turn_right) and  Input.is_action_pressed(drone_turn_right):
 		joystick_left_vertical_rotate.x += 1
 	on_input_processed.emit(joystick_left_vertical_rotate, joystick_right_move)
 	# print("Test" +str(joystick_left_vertical_rotate) + " "+str(joystick_right_move))
